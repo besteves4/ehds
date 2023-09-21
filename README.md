@@ -7,6 +7,14 @@ In parallel, initiatives such as the International Data Spaces Association and G
 In order to address EHDS's new requirements and promote interoperability between data spaces initiatives, this work investigates how to extend existing Semantic Web vocabularies to generate policies for the secondary use of health data, in particular for altruistic purposes, considering data minimisation and purpose limitation principles.
 Additionally, we provide preliminary work on a vocabulary with taxonomies of purposes, health data types and data spaces entities and roles.
 
+## Repository Contents
+
+The repository contains the following work:
+
+- [`./vocabulary-terms`](./vocabulary-terms) contains a spreadsheet with the vocabulary's classes and an RDF serialisation in Turtle.
+- [`./examples`](./examples) contains a list of RDF examples that use the modelled classes to specify ODRL policies for EHDS data categories and purposes
+- [`./img`](./img) contains diagrams of the modelled purposes and data categories, which are also showcased below.
+
 ![EHDS purposes](./img/purposes.png "EHDS purpose taxonomy")
 
 ![EHDS data](./img/data.png "EHDS data taxonomy")

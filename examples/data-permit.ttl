@@ -1,0 +1,37 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dgaterms: <https://w3id.org/dgaterms#>
+PREFIX dpv: <https://w3id.org/dpv#>
+PREFIX ehds: <https://w3id.org/ehds#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ex: <https://example.com/>
+
+ex:Dataset_001 a dcat:Dataset ;
+    dpv:hasPersonalData ehds:ElectronicHealthRecord ;
+    dcat:mediaType <iana.org/assignments/media-types/text/csv> ;
+    dcterms:source <https://solidweb.me/arya/ehr/> ; 
+    dgaterms:hasFee "5€"^^xsd:string .
+
+ex:HealthDataAccessBody a ehds:HealthDataAccessBody .
+
+ex:DataUser a dgaterms:DataUser .
+
+ex:Policy_001 a odrl:Agreement, ehds:DataPermit ; 
+    odrl:uid ex:Policy_001 ;
+    odrl:permission [
+        odrl:target ex:Dataset_001 ; 
+        odrl:action dgaterms:Reuse ;
+        odrl:assigner ex:HealthDataAccessBody ; 
+        odrl:assignee ex:DataUser ;
+        odrl:constraint [
+            odrl:and [
+                odrl:leftOperand odrl:dateTime ;
+                odrl:operator odrl:lteq ;
+                odrl:rightOperand "2023-12-31"^^xsd:date ], [
+                odrl:leftOperand odrl:purpose ; 
+                odrl:operator odrl:eq ;
+                odrl:rightOperand ehds:HealthcareScientificResearch
+            ]
+        ]
+    ] .

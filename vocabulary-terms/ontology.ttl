@@ -1,0 +1,528 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dgaterms: <https://w3id.org/dgaterms#>
+PREFIX dpv: <https://w3id.org/dpv#>
+PREFIX dpv-pd: <https://w3id.org/dpv/dpv-pd#>
+PREFIX dpv-tech: <https://w3id.org/dpv/dpv-tech#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+PREFIX ehds: <https://w3id.org/ehds#>
+
+# ------------ Ontology Metadata ------------------ #
+
+ehds: a owl:Ontology ;
+	dcterms:title "European Health Data Space (EHDS) vocabulary"@en ;
+	vann:preferredNamespacePrefix "ehds" ;
+    vann:preferredNamespaceUri "https://w3id.org/ehds#" ;
+	rdfs:label "European Health Data Space (EHDS) vocabulary"@en ;
+	owl:versionInfo "0.1"^^xsd:decimal ;
+	dcterms:created "2023-09-17"^^xsd:date ;
+	dcterms:creator "Beatriz Esteves", "Davide Audrito" ;
+	dcterms:description "In order to address EHDS's new requirements and promote interoperability between data spaces initiatives, this work investigates how to extend existing Semantic Web vocabularies to generate policies for the secondary use of health data, in particular for altruistic purposes, considering data minimisation and purpose limitation principles."@en ;
+	rdfs:comment "This is the Turtle serialisation for EHDS."@en ;
+	dcterms:license <https://dalicc.net/licenselibrary/CC-BY_v4> .
+
+# ------------ Data Concepts ------------------ #
+
+ehds:ElectronicHealthRecord a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:HealthRecord ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Electronic Health Record"@en ;
+    skos:definition "Information about electronic health record."@en ;
+    dcterms:source "EHDS 33.1(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:SocialDataIH a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:Health ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Social Data impacting Health"@en ;
+    skos:definition "Information about social data impacting on health."@en ;
+    dcterms:source "EHDS 33.1(b)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:EnvironmentalDataIH a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:Health ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Environmental Data impacting Health"@en ;
+    skos:definition "Information about environmental data impacting on health."@en ;
+    dcterms:source "EHDS 33.1(b)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:BehavioralDataIH a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:Health ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Behavioral Data impacting Health"@en ;
+    skos:definition "Information about behavioral data impacting on health."@en ;
+    dcterms:source "EHDS 33.1(b)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PathogenGenomic a rdfs:Class ;
+    rdfs:subClassOf dpv:NonPersonalData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Pathogen Genomic Data"@en ;
+    skos:definition "Information about relevant pathogen genomic data, impacting on human health."@en ;
+    dcterms:source "EHDS 33.1(c)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthAdminData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:MedicalHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health-related Administrative Data"@en ;
+    skos:definition "Information about health-related administrative data."@en ;
+    dcterms:source "EHDS 33.1(d)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:ClaimData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:HealthAdminData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health-related Claim Data"@en ;
+    skos:definition "Information about health-related claims data."@en ;
+    dcterms:source "EHDS 33.1(d)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:ReimbursementData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:HealthAdminData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health-related Reimbursement Data"@en ;
+    skos:definition "Information about health-related reimbursement data."@en ;
+    dcterms:source "EHDS 33.1(d)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:Genomic a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:Genetic ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Genomic Data"@en ;
+    skos:definition "Information about genomic data."@en ;
+    dcterms:source "EHDS 33.1(e)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:Proteomic a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:Genetic ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Proteomic Data"@en ;
+    skos:definition "Information about proteomic data."@en ;
+    dcterms:source "EHDS 33.1(e)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PGHealthData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:MedicalHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Person Generated Health Data"@en ;
+    skos:definition "Information about person generated electronic health data."@en ;
+    dcterms:source "EHDS 33.1(f)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PGMedicalDevice a rdfs:Class ;
+    rdfs:subClassOf ehds:PGHealthData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Person Generated Medical Devices Data"@en ;
+    skos:definition "Information about person generated medical devices data."@en ;
+    dcterms:source "EHDS 33.1(f)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PGHealthApp a rdfs:Class ;
+    rdfs:subClassOf ehds:PGHealthData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Person Generated Health Application Data"@en ;
+    skos:definition "Information about person generated digital health applications data."@en ;
+    dcterms:source "EHDS 33.1(f)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PGWellnessApp a rdfs:Class ;
+    rdfs:subClassOf ehds:PGHealthApp ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Person Generated Wellness Application Data"@en ;
+    skos:definition "Information about person generated wellness applications data."@en ;
+    dcterms:source "EHDS 33.1(f)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthProfessional a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:HealthRecord ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health Professional Data"@en ;
+    skos:definition "Information about the identity of the health professionals involved in the treatment of the person."@en ;
+    dcterms:source "EHDS 33.1(g)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthRegistryData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:MedicalHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health Registry Data"@en ;
+    skos:definition "Information about registries of health data."@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PublicHealthRegistryData a rdfs:Class ;
+    rdfs:subClassOf ehds:HealthRegistryData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Public Health Registry Data"@en ;
+    skos:definition "Information about registries of public health data."@en ;
+    dcterms:source "EHDS 33.1(h)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:MedicalRegistryData a rdfs:Class ;
+    rdfs:subClassOf ehds:HealthRegistryData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Medical Registry Data"@en ;
+    skos:definition "Information about electronic health data from medical registries."@en ;
+    dcterms:source "EHDS 33.1(i)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:DiseaseRegistryData a rdfs:Class ;
+    rdfs:subClassOf ehds:MedicalRegistryData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Disease Registry Data"@en ;
+    skos:definition "Information about electronic health data from medical registries for specific diseases."@en ;
+    dcterms:source "EHDS 33.1(i)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:StudyData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:MedicalHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Study Data"@en ;
+    skos:definition "Information about health data from studies, e.g. clinical trials, research cohorts, ..."@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:ClinicalTrialsData a rdfs:Class ;
+    rdfs:subClassOf ehds:StudyData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Clinical Trials Data"@en ;
+    skos:definition "Information about health data from clinical trials."@en ;
+    dcterms:source "EHDS 33.1(j)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:MedicalDevicesData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:MedicalHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Medical Devices Data"@en ;
+    skos:definition "Information about electronic health data from medical devices."@en ;
+    dcterms:source "EHDS 33.1(k)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:MedicinalProductsRegistryData a rdfs:Class ;
+    rdfs:subClassOf ehds:HealthRegistryData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Medicinal Products Registry Data"@en ;
+    skos:definition "Information about electronic health data from registries for medicinal products."@en ;
+    dcterms:source "EHDS 33.1(k)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:MedicalDevicesRegistryData a rdfs:Class ;
+    rdfs:subClassOf ehds:HealthRegistryData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Medical Devices Registry Data"@en ;
+    skos:definition "Information about electronic health data from registries for medical devices."@en ;
+    dcterms:source "EHDS 33.1(k)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:ResearchCohort a rdfs:Class ;
+    rdfs:subClassOf ehds:StudyData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Research Cohort Data"@en ;
+    skos:definition "Information about health data from research cohorts."@en ;
+    dcterms:source "EHDS 33.1(l)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthQuestionnaire a rdfs:Class ;
+    rdfs:subClassOf ehds:StudyData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health Questionnaire"@en ;
+    skos:definition "Information about health data from questionnaires."@en ;
+    dcterms:source "EHDS 33.1(l)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthSurvey a rdfs:Class ;
+    rdfs:subClassOf ehds:StudyData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health Survey"@en ;
+    skos:definition "Information about health data from surveys."@en ;
+    dcterms:source "EHDS 33.1(l)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:BiobankData a rdfs:Class ;
+    rdfs:subClassOf dpv-pd:MedicalHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Biobank Data"@en ;
+    skos:definition "Information about electronic health data from biobanks."@en ;
+    dcterms:source "EHDS 33.1(m)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:Lifestyle a rdfs:Class ;
+    rdfs:subClassOf dpv:Behavioral ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Lifestyle"@en ;
+    skos:definition "Information about lifestyle."@en ;
+    dcterms:source "EHDS 33.1(n)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:Wellness a rdfs:Class ;
+    rdfs:subClassOf dpv:Behavioral ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Wellness"@en ;
+    skos:definition "Information about wellness."@en ;
+    dcterms:source "EHDS 33.1(n)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:InferredHealthData a rdfs:Class ;
+    rdfs:subClassOf dpv:InferredPersonalData ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Inferred Health Data"@en ;
+    skos:definition "Information about inferred health data, including improvements such as correction, annotation, or enrichment based on authorised processing operations."@en ;
+    dcterms:source "EHDS 33.1(o)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+# ------------ Purpose Concepts ------------------ #
+
+ehds:PublicInterestRelatedToHealth a rdfs:Class ;
+    rdfs:subClassOf dpv:Purpose ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Public Interest related to Health"@en ;
+    skos:definition "Purposes associated with pursuing activities for reasons of public interest in the area of public and occupational health."@en ;
+    dcterms:source "EHDS 34.1(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:ProtectAgainstCrossBorderThreatsToHealth a rdfs:Class ;
+    rdfs:subClassOf ehds:PublicInterestRelatedToHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Protect against Cross-border Threats to Health"@en ;
+    skos:definition "Purposes associated with the protection against serious cross-border threats to health."@en ;
+    dcterms:source "EHDS 34.1(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PublicHealthSurveillance a rdfs:Class ;
+    rdfs:subClassOf ehds:PublicInterestRelatedToHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Public Health Surveillance"@en ;
+    skos:definition "Purposes associated with public health surveillance."@en ;
+    dcterms:source "EHDS 34.1(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:EnsureQualitySafetyHealthcare a rdfs:Class ;
+    rdfs:subClassOf ehds:PublicInterestRelatedToHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Ensure Quality and Safety of Healthcare"@en ;
+    skos:definition "Purposes associated with ensuring high levels of quality and safety of healthcare."@en ;
+    dcterms:source "EHDS 34.1(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:EnsureQualitySafetyMedicinalProducts a rdfs:Class ;
+    rdfs:subClassOf ehds:PublicInterestRelatedToHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Ensure Quality and Safety of Medicinal Products"@en ;
+    skos:definition "Purposes associated with ensuring high levels of quality and safety of medicinal products."@en ;
+    dcterms:source "EHDS 34.1(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:EnsureQualitySafetyMedicalDevices a rdfs:Class ;
+    rdfs:subClassOf ehds:PublicInterestRelatedToHealth ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Ensure Quality and Safety of Medical Devices"@en ;
+    skos:definition "Purposes associated with ensuring high levels of quality and safety of medical devices."@en ;
+    dcterms:source "EHDS 34.1(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:SupportAuthoritiesRegulatoryActivities a rdfs:Class ;
+    rdfs:subClassOf dpv:LegalCompliance ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Support Authorities in Regulatory Activities"@en ;
+    skos:definition "Purposes associated with supporting authorities to  carry out their regulatory tasks."@en ;
+    dcterms:source "EHDS 34.1(b)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:ProvideHealthcareOfficialStatistics a rdfs:Class ;
+    rdfs:subClassOf dgaterms:ProvideOfficialStatistics ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Provide Healthcare Official Statistics"@en ;
+    skos:definition "Purposes associated with facilitating the development, production and dissemination of reliable official statistics related to health or care sectors."@en ;
+    dcterms:source "EHDS 34.1(c)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:ImproveHealthcareEducation a rdfs:Class ;
+    rdfs:subClassOf dgaterms:ImprovePublicServices ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Improve Healthcare Education"@en ;
+    skos:definition "Purposes associated with improving the provision of healthcare education."@en ;
+    dcterms:source "EHDS 34.1(d)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthcareScientificResearch a rdfs:Class ;
+    rdfs:subClassOf dgaterms:ScientificResearch ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Healthcare Scientific Research"@en ;
+    skos:definition "Purposes associated with healthcare scientific research."@en ;
+    dcterms:source "EHDS 34.1(e)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:DevelopPublicHealthProductsAndServices a rdfs:Class ;
+    rdfs:subClassOf dpv:ResearchAndDevelopment ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Develop Public Health Products and Services"@en ;
+    skos:definition "Purposes associated with developing products and services that contribute to public health."@en ;
+    dcterms:source "EHDS 34.1(f)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:DevelopSocialSecurityProductsAndServices a rdfs:Class ;
+    rdfs:subClassOf dpv:ResearchAndDevelopment ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Develop Social Security Products and Services"@en ;
+    skos:definition "Purposes associated with developing products and services that contribute to social security."@en ;
+    dcterms:source "EHDS 34.1(f)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TrainTestAndEvaluateHealthAlgorithms a rdfs:Class ;
+    rdfs:subClassOf dpv:Purpose ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Train, Test and Evaluate Health-related Algorithms"@en ;
+    skos:definition "Purposes associated with training, testing and evaluating health-related algorithms."@en ;
+    dcterms:source "EHDS 34.1(g)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TrainTestAndEvaluateMedicalDevicesAlgorithms a rdfs:Class ;
+    rdfs:subClassOf ehds:TrainTestAndEvaluateHealthAlgorithms ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Train, Test and Evaluate Medical Devices Algorithms"@en ;
+    skos:definition "Purposes associated with training, testing and evaluating algorithms in medical devices."@en ;
+    dcterms:source "EHDS 34.1(g)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TrainTestAndEvaluateAISystemsAlgorithms a rdfs:Class ;
+    rdfs:subClassOf ehds:TrainTestAndEvaluateHealthAlgorithms ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Train, Test and Evaluate AI Systems Algorithms"@en ;
+    skos:definition "Purposes associated with training, testing and evaluating algorithms in AI systems."@en ;
+    dcterms:source "EHDS 34.1(g)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TrainTestAndEvaluateHealthAppsAlgorithms a rdfs:Class ;
+    rdfs:subClassOf ehds:TrainTestAndEvaluateHealthAlgorithms ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Train, Test and Evaluate Health Apps Algorithms"@en ;
+    skos:definition "Purposes associated with training, testing and evaluating algorithms in digital health applications."@en ;
+    dcterms:source "EHDS 34.1(g)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:PersonalisedHealthcare a rdfs:Class ;
+    rdfs:subClassOf dgaterms:ImproveHealthcare, dpv:Personalisation ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Personalised Healthcare"@en ;
+    skos:definition "Purposes associated with providing personalised healthcare."@en ;
+    dcterms:source "EHDS 34.1(h)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+# ------------ Entity Concepts ------------------ #
+
+ehds:EHRManufacturer a rdfs:Class ;
+    rdfs:subClassOf ehds:TechnologyManufacturer ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Electronic Health Record Manufacturer"@en ;
+    skos:definition "Actor that manufactures electronic health records."@en ;
+    dcterms:source "EHDS 1.3(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:EHRSupplier a rdfs:Class ;
+    rdfs:subClassOf ehds:TechnologySupplier ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Electronic Health Record Supplier"@en ;
+    skos:definition "Actor that supplies electronic health records."@en ;
+    dcterms:source "EHDS 1.3(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:WellnessAppManufacturer a rdfs:Class ;
+    rdfs:subClassOf ehds:TechnologyManufacturer ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Wellness App Manufacturer"@en ;
+    skos:definition "Actor that manufactures wellness apps."@en ;
+    dcterms:source "EHDS 1.3(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:WellnessAppSupplier a rdfs:Class ;
+    rdfs:subClassOf ehds:TechnologySupplier ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Wellness App Supplier"@en ;
+    skos:definition "Actor that supplies wellness apps."@en ;
+    dcterms:source "EHDS 1.3(a)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthProfessional a rdfs:Class ;
+    rdfs:subClassOf dpv:Entity ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health Professional"@en ;
+    skos:definition "An entity that works as a health professional."@en ;
+    dcterms:source "EHDS 2.1(b)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthcareProvider a rdfs:Class ;
+    rdfs:subClassOf dpv:Entity ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Healthcare Provider"@en ;
+    skos:definition "An entity that provides healthcare-related services."@en ;
+    dcterms:source "EHDS 2.1(b)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TechnologyManufacturer a rdfs:Class ;
+    rdfs:subClassOf dpv-tech:TechnologyActor ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Technology Manufacturer"@en ;
+    skos:definition "Actor that manufactures Technology."@en ;
+    dcterms:source "EHDS 2.1(d)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TechnologyImporter a rdfs:Class ;
+    rdfs:subClassOf dpv-tech:TechnologyActor ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Technology Importer"@en ;
+    skos:definition "Actor that imports Technology."@en ;
+    dcterms:source "EHDS 2.1(d)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TechnologyDistributor a rdfs:Class ;
+    rdfs:subClassOf dpv-tech:TechnologyActor ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Technology Distributor"@en ;
+    skos:definition "Actor that distributes Technology."@en ;
+    dcterms:source "EHDS 2.1(d)"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:TechnologySupplier a rdfs:Class ;
+    rdfs:subClassOf dpv-tech:TechnologyActor ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Technology Supplier"@en ;
+    skos:definition "Actor that supplies Technology."@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:HealthDataAccessBody a rdfs:Class ;
+    rdfs:subClassOf dpv:LegalEntity ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Health Data Access Body"@en ;
+    skos:definition "An entity governed by public law responsible for granting access to electronic health data for secondary use."@en ;
+    dcterms:source "EHDS 36.1"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+# ------------ Policy Concepts ------------------ #
+
+ehds:DataAccessApplication a rdfs:Class ;
+    rdfs:subClassOf dpv:Policy ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Data Access Application"@en ;
+    skos:definition "Request sent by data users to health data access bodies, seeking access to electronic health data."@en ;
+    dcterms:source "EHDS 45"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:DataPermit a rdfs:Class ;
+    rdfs:subClassOf dpv:Policy ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Data Permit"@en ;
+    skos:definition "Permit issued by health data access bodies to data users regarding data access applications."@en ;
+    dcterms:source "EHDS 46"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .
+
+ehds:DataRequest a rdfs:Class ;
+    rdfs:subClassOf dpv:Policy ;
+    rdfs:isDefinedBy ehds: ;
+    rdfs:label "Data Request"@en ;
+    skos:definition "Request sent by data users to health data access bodies, seeking access to statistically anonymised electronic health data."@en ;
+    dcterms:source "EHDS 47"@en ;
+    dcterms:created "2023-09-17"^^xsd:date .

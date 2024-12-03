@@ -26,5 +26,3 @@ This work is under review at the [36th International Conference on Legal Knowled
 Work developed by:
 
 [Beatriz Esteves](mailto:beatriz.gesteves@upm.es), Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
-
-Davide Audrito, University of Bologna, Italy

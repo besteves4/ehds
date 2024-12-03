@@ -17,11 +17,11 @@ PREFIX ehds: <https://w3id.org/ehds#>
 ehds: a owl:Ontology ;
 	dcterms:title "European Health Data Space (EHDS) vocabulary"@en ;
 	vann:preferredNamespacePrefix "ehds" ;
-    vann:preferredNamespaceUri "https://w3id.org/ehds#" ;
+    	vann:preferredNamespaceUri "https://w3id.org/ehds#" ;
 	rdfs:label "European Health Data Space (EHDS) vocabulary"@en ;
 	owl:versionInfo "0.1"^^xsd:decimal ;
 	dcterms:created "2023-09-17"^^xsd:date ;
-	dcterms:creator "Beatriz Esteves", "Davide Audrito" ;
+	dcterms:creator "Beatriz Esteves" ;
 	dcterms:description "In order to address EHDS's new requirements and promote interoperability between data spaces initiatives, this work investigates how to extend existing Semantic Web vocabularies to generate policies for the secondary use of health data, in particular for altruistic purposes, considering data minimisation and purpose limitation principles."@en ;
 	rdfs:comment "This is the Turtle serialisation for EHDS."@en ;
 	dcterms:license <https://dalicc.net/licenselibrary/CC-BY_v4> .
